@@ -21,6 +21,9 @@ app.use(express.bodyParser());
 
 //routes
 app.get('/', index.view);
+app.get('/login', index.login);
+app.get('/loggedin', index.loggedin);
+
 //set environment ports and start application
 app.set('port', process.env.PORT || 3000);
 http.createServer(app).listen(app.get('port'), function(){
