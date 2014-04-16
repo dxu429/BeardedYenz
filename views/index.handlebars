@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Boilerplate</title>
+    <title>Digital Footprint</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -44,11 +44,7 @@
         {{#each data}}
         <p>{{name}} {{id}} {{uid2}} {{url}}</p>
         {{/each}}
-      {{else}}
-        <a href="/login"><button>Log-in with Facebook</button></a>
-      {{/if}}
-
-      <!-- TagCanvas -->
+        <!-- TagCanvas -->
       <div id="myCanvasContainer">
         <canvas width="300" height="300" id="myCanvas">
           <p>Anything in here will be replaced on browsers that support the canvas element</p>
@@ -56,7 +52,7 @@
       </div>
       <div id="tags">
         <ul>
-          <li><a href="http://www.google.com" target="_blank">Link</a></li>
+          <li><a href="http://www.google.com" target="_blank">Link`</a></li>
           <li><a href="/">link 1</a></li>
           <li><a href="/">link 2</a></li>
           <li><a href="/">link 3</a></li>
@@ -64,6 +60,9 @@
         </ul>
       </div>
       <!-- End TagCanvas -->
+      {{else}}
+        <a href="/login"><button>Log-in with Facebook</button></a>
+      {{/if}}
 
     </div>
   </body>
