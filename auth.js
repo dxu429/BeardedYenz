@@ -7,6 +7,7 @@ var graph = require('fbgraph');
 var fbAuthUrl = graph.getOauthUrl({
     "client_id":     process.env.facebook_client_id
   , "redirect_uri":  process.env.redirect_uri
+  , "scope": "user_friends, user_about_me, user_birthday, read_stream"
 });
 
 var fbAuthObj = function(req) {

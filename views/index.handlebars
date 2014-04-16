@@ -19,10 +19,15 @@
 
 <body>
     <div class="container">  
-     	<h1>This is a boilerplate</h1>
-      {{#unless loggedIn}}
+     	<h1>This is not a boilerplate</h1>
+      {{#if loggedIn}}
+        {{#each data}}
+        <p>{{name}} {{id}} {{uid2}} {{url}}</p>
+        {{/each}}
+      {{else}}
         <a href="/login"><button>Log-in with Facebook</button></a>
-      {{/unless}}
+      {{/if}}
+
     </div>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
