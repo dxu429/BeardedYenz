@@ -23,9 +23,6 @@ exports.login = function(req, res) {
 }
 
 exports.loggedin = function(req, res) {
-	var query = {
-		links: "SELECT url FROM link WHERE owner IN (SELECT uid2 FROM friend where uid1=me())"
-	};
 	// this is gonna take a long time, maybe put into another function for ajax req.
 	auth.graph.get("/me/friends", {access_token: auth.graph.getAccessToken()}, function(err, facebookRes) {
 		var friends = facebookRes.data;
@@ -33,20 +30,24 @@ exports.loggedin = function(req, res) {
 		var urls = {};
 		var numChunks = friends.length/chunkSize;
 		var chunkNo = 0;
+
 		for(i=0; i<friends.length; i+= chunkSize) {
 			var ids = [], idstr;
+
 			for(j=i; j<friends.length && j<i+chunkSize; ++j) {
 				ids.push(friends[i].id);
 			}
 			idstr = ids.join(",");
+			
 			auth.graph.fql("select url from link where owner in ("+idstr+")", function(fberr, fbRes) {
 				var chunk = ++chunkNo;
+
 				for (var k = fbRes.data.length - 1; k >= 0; k--) {
 					if(!fbRes.data[k].url) {
-						console.log(fbRes.data[k].url);
 						continue;
 					}
 					var url_hn = url.parse(fbRes.data[k].url).hostname;
+					
 					if(!url_hn) 
 						url_hn = "www.facebook.com";
 					if(typeof urls[url_hn] === "undefined") {
@@ -60,7 +61,7 @@ exports.loggedin = function(req, res) {
 					var arr = [];
 					for (var i = Object.keys(urls).length - 1; i >= 0; i--) {
 						var key = Object.keys(urls)[i];
-						arr.push({url: key, hits: urls[key]});
+						arr.push({url: key, weight: Math.log(urls[key]) + 1});
 					}
 					res.render('index', {loggedIn: 1, data: arr});
 				}

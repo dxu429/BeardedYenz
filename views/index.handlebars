@@ -22,12 +22,11 @@
     <script type="text/javascript">
       window.onload = function() {
         try {
-          TagCanvas.Start('myCanvas','tags',{
-            textColour: '#ff0000',
-            outlineColour: '#ff00ff',
+          TagCanvas.Start('myCanvas','asd',{
             reverse: true,
             depth: 0.8,
-            maxSpeed: 0.05
+            maxSpeed: 0.05, 
+            weight: true
           });
         } catch(e) {
           // something went wrong, hide the canvas container
@@ -41,25 +40,20 @@
     <div class="container">  
      	<h1>This is not a boilerplate</h1>
       {{#if loggedIn}}
-        {{#each data}}
-        <p>{{url}} {{hits}}</p>
-        {{/each}}
-        <!-- TagCanvas -->
-      <div id="myCanvasContainer">
-        <canvas width="300" height="300" id="myCanvas">
-          <p>Anything in here will be replaced on browsers that support the canvas element</p>
-        </canvas>
-      </div>
-      <div id="tags">
-        <ul>
-          <li><a href="http://www.google.com" target="_blank">Link`</a></li>
-          <li><a href="/">link 1</a></li>
-          <li><a href="/">link 2</a></li>
-          <li><a href="/">link 3</a></li>
-          <li><a href="/">link 4</a></li>
-        </ul>
-      </div>
-      <!-- End TagCanvas -->
+          <!-- TagCanvas -->
+        <div id="myCanvasContainer">
+          <canvas width="100" height="100" id="myCanvas">
+            <p>Anything in here will be replaced on browsers that support the canvas element</p>
+          </canvas>
+        </div>
+        <div id="tags">
+          <ul class="weighted" id="weightTags">
+          {{#each data}}
+            <li><a href="{{url}}" style="font-size: {{weight}}ex">{{url}} {{weight}}</a></li>
+          {{/each}}
+          </ul>
+        </div>
+        <!-- End TagCanvas -->
       {{else}}
         <a href="/login"><button>Log-in with Facebook</button></a>
       {{/if}}
