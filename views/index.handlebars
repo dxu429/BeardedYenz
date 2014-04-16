@@ -38,13 +38,17 @@
   </head>
 
   <body>
-    <div class="container">
-      <h1>This is a boilerplate</h1>
-      <!-- Old shits
-      {{#unless loggedIn}}
+    <div class="container">  
+     	<h1>This is not a boilerplate</h1>
+      {{#if loggedIn}}
+        {{#each data}}
+        <p>{{name}} {{id}} {{uid2}} {{url}}</p>
+        {{/each}}
+      {{else}}
         <a href="/login"><button>Log-in with Facebook</button></a>
-      {{/unless}}
-      -->
+      {{/if}}
+
+      <!-- TagCanvas -->
       <div id="myCanvasContainer">
         <canvas width="300" height="300" id="myCanvas">
           <p>Anything in here will be replaced on browsers that support the canvas element</p>
@@ -59,6 +63,8 @@
           <li><a href="/vinegar">Vinegar</a></li>
         </ul>
       </div>
+      <!-- End TagCanvas Shit -->
+
     </div>
   </body>
 
