@@ -23,8 +23,19 @@ exports.login = function(req, res) {
 }
 
 exports.loggedin = function(req, res) {
-	// this is gonna take a long time, maybe put into another function for ajax req.
+	var me, numFriends;
+	auth.graph.get("/me", {access_token: auth.graph.getAccessToken()}, function(err, facebookRes) {
+		me = facebookRes;
+		res.render("index", {loggedIn:1, me: me});		
+	});
+}
+
+exports.getFriendLinks = function(req, res) {
 	auth.graph.get("/me/friends", {access_token: auth.graph.getAccessToken()}, function(err, facebookRes) {
+		if(typeof facebookRes.data === "undefined" || err) {
+			res.redirect('/login');
+			return;
+		}
 		var friends = facebookRes.data;
 		var i, j, chunkOfIds, chunkSize = 10;
 		var urls = {};
@@ -40,6 +51,10 @@ exports.loggedin = function(req, res) {
 			idstr = ids.join(",");
 			
 			auth.graph.fql("select url from link where owner in ("+idstr+")", function(fberr, fbRes) {
+				if(typeof facebookRes.data === "undefined" || err) {
+					res.json({error: err, msg: "Could not get your friend's posted links."});
+					return;
+				}
 				var chunk = ++chunkNo;
 
 				for (var k = fbRes.data.length - 1; k >= 0; k--) {
@@ -48,6 +63,7 @@ exports.loggedin = function(req, res) {
 					}
 					var url_hn = url.parse(fbRes.data[k].url).hostname;
 					
+					// when no host name, default to facebook
 					if(!url_hn) 
 						url_hn = "www.facebook.com";
 					if(typeof urls[url_hn] === "undefined") {
@@ -61,13 +77,11 @@ exports.loggedin = function(req, res) {
 					var arr = [];
 					for (var i = Object.keys(urls).length - 1; i >= 0; i--) {
 						var key = Object.keys(urls)[i];
-						arr.push({url: key, weight: Math.log(urls[key]) + 1});
+						arr.push([key, Math.log(urls[key]) + 1]);
 					}
-					res.render('index', {loggedIn: 1, data: arr});
+					res.json({data: arr});
 				}
 			});
 		}
 	});
-
-
 }
