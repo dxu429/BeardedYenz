@@ -14,16 +14,6 @@ var fbAuthUrl = graph.getOauthUrl({
   , "scope": "user_friends, user_about_me, user_birthday, read_stream"
 });
 
-passport.use(new FacebookStrategy({
-    clientID: process.env.facebook_client_id,
-    clientSecret: process.env.facebook_client_secret,
-    callbackURL: process.env.redirect_uri
-  },
-  function(accessToken, refreshToken, profile, done) {
-    
-  }
-));
-
 var fbAuthObj = function(req) {
 	return {
 	  "client_id":     process.env.facebook_client_id
