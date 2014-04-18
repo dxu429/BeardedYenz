@@ -27,7 +27,7 @@ exports.login = function(req, res) {
 
 exports.canvas = function(req, res) {
 	console.log("within canvas post");
-	auth.passport.authenticate('facebook-canvas',  { successRedirect: '/',
+	auth.passport.authenticate('facebook-canvas',  { successRedirect: '/loggedin',
                                              failureRedirect: '/auth/facebook/canvas/autologin' }, 
                                              function(a,b){console.log(a);console.log(b);});
 }
