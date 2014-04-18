@@ -28,7 +28,7 @@ var T = new Twit({
 	access_token: 		 process.env.twitter_access_token,
 	access_token_secret: process.env.twitter_access_token_secret
 });
-
+console.log(process.env);
 exports.graph = graph;
 exports.fbAuthUrl = fbAuthUrl;
 exports.fbAuthObj = fbAuthObj;
