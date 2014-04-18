@@ -35,7 +35,9 @@ passport.use(new FacebookStrategy({
 		clientSecret: process.env.facebook_client_secret,
 		callbackURL: "https://beardedyenz.herokuapp.com/loggedin"
 	}, function(accessToken, refreshToken, profile, done) {
-
+		console.log(accessToken);
+		console.log(refreshToken);
+		console.log(profile);
 	}
 ));
 
