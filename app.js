@@ -5,7 +5,7 @@ var path = require('path');
 var handlebars = require('express3-handlebars');
 var app = express();
 var passport = require('passport');
-var FacebookStrategy = require('passport-facebook-canvas');
+var FacebookStrategy = require('passport-facebook-canvas').Strategy;
 
 //route files to load
 var index = require('./routes/index');
@@ -27,6 +27,7 @@ passport.use(new FacebookStrategy({
 		clientSecret: '8f82eef4074c806f061fbe24a27e0620',
 		callbackURL: "https://beardedyenz.herokuapp.com/loggedin"
 	}, function(accessToken, refreshToken, profile, done) {
+		done(null, {});
 	}
 ));
 

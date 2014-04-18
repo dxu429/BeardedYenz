@@ -24,14 +24,9 @@ exports.login = function(req, res) {
   	});
 }
 
-exports.canvas = function(req, res) {
-	console.log("within canvas post");
-	auth.passport.authenticate('facebook-canvas',  { successRedirect: '/loggedin',
-                                             failureRedirect: '/auth/facebook/canvas/autologin' });
-}
-
 exports.loggedin = function(req, res) {
 	var me, timeline;
+	console.log(res);
 	auth.graph.get("/me", {access_token: auth.graph.getAccessToken()}, function(err, facebookRes) {
 		me = facebookRes;
 		auth.T.get('statuses/home_timeline', function(err, reply) {	
@@ -42,8 +37,6 @@ exports.loggedin = function(req, res) {
 
 exports.getFriendLinks = function(req, res) {
 	auth.graph.get("/me/friends", function(err, facebookRes) {
-		console.log(err);
-		console.log(facebookRes);
 		if(typeof facebookRes.data === "undefined" || err) {
 			res.redirect('/login');
 			return;
