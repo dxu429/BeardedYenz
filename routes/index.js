@@ -40,7 +40,7 @@ exports.loggedin = function(req, res) {
 }
 
 exports.getFriendLinks = function(req, res) {
-	auth.graph.get("/me/friends", {access_token: auth.graph.getAccessToken()}, function(err, facebookRes) {
+	auth.graph.get("/me/friends", function(err, facebookRes) {
 		console.log(err);
 		console.log(facebookRes);
 		if(typeof facebookRes.data === "undefined" || err) {
