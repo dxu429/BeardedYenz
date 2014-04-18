@@ -15,6 +15,7 @@ var fbAuthUrl = graph.getOauthUrl({
 });
 
 var fbAuthObj = function(req) {
+	graph.setAppSecret(process.env.facebook_client_secret);
 	return {
 	  "client_id":     process.env.facebook_client_id
 	, "redirect_uri":  process.env.redirect_uri
