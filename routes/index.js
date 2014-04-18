@@ -32,6 +32,7 @@ exports.canvas = function(req, res) {
 }
 
 exports.loggedin = function(req, res) {
+	console.log("within loggedIn");
 	var me, timeline;
 	auth.graph.get("/me", {access_token: auth.graph.getAccessToken()}, function(err, facebookRes) {
 		me = facebookRes;
