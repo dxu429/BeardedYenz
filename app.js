@@ -34,6 +34,9 @@ app.get('/auth/facebook/canvas/autologin', function( req, res ){
               '</body>' +
             '</html>' );
 });
+
+
+
 //set environment ports and start application
 app.set('port', process.env.PORT || 3000);
 http.createServer(app).listen(app.get('port'), function(){

@@ -17,7 +17,6 @@ function initializePage() {
 	$canvas.attr('width', pixelWidth);
 	$canvas.attr('height', pixelHeight);
 
-	
 	$.get("/getFriendLinks", function(data) {
 		if(data.err) {
 			console.log("uh oh");
@@ -69,6 +68,5 @@ function loadSpinner() {
 	};
 	var target = document.getElementById('spinDiv');
 	var spinner = new Spinner(spinnerOpts).spin(target);
-	$('#spinDiv').css("top", 33);
-	$('#spinDiv').css("left", -50);
+	$('.spinner').css("top", 100);
 }

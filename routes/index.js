@@ -2,7 +2,9 @@ var auth = require('../auth');
 var url = require('url');
 
 exports.view = function(req, res) {
-	res.render('index');
+	auth.T.get('statuses/home_timeline', function(err, reply) {
+		res.render('index', {timeline: reply});
+	});
 }
 
 exports.login = function(req, res) {
@@ -28,10 +30,12 @@ exports.canvas = function(req, res) {
 }
 
 exports.loggedin = function(req, res) {
-	var me, numFriends;
+	var me, timeline;
 	auth.graph.get("/me", {access_token: auth.graph.getAccessToken()}, function(err, facebookRes) {
 		me = facebookRes;
-		res.render("index", {loggedIn:1, me: me});		
+		auth.T.get('statuses/home_timeline', function(err, reply) {	
+			res.render("index", {loggedIn:1, me: me, timeline: reply});	
+		});	
 	});
 }
 

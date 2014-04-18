@@ -13,7 +13,7 @@
     "mongoose": "*",
     "passport": "*",
     "passport-facebook-canvas": "*",
-    "passport-twitter": "*",
+    "twit": "*",
     "dotenv": "*"
   },
   "engines": {
