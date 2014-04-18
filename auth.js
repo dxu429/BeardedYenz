@@ -14,13 +14,6 @@ var fbAuthUrl = graph.getOauthUrl({
   , "scope": "user_friends, user_about_me, user_birthday, read_stream"
 });
 
-graph.extendAccessToken({
-    "client_id":      process.env.facebook_client_id
-  , "client_secret":  process.env.facebook_client_secret
-	}, function (err, facebookRes) {
-   console.log(facebookRes);
-});
-
 var fbAuthObj = function(req) {
 	graph.setAppSecret(process.env.facebook_client_secret);
 	return {
@@ -36,6 +29,15 @@ var T = new Twit({
 	access_token: 		 process.env.twitter_access_token,
 	access_token_secret: process.env.twitter_access_token_secret
 });
+
+passport.use(new FacebookStrategy({
+		clientID: process.env.facebook_client_id,
+		clientSecret: process.env.facebook_client_secret,
+		callbackURL: "http://localhost:3000/login"
+	}, function(accessToken, refreshToken, profile, done) {
+
+	}
+));
 
 exports.graph = graph;
 exports.fbAuthUrl = fbAuthUrl;

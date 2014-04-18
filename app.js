@@ -20,7 +20,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.bodyParser());
 
 //routes
-app.all('/', index.view);
+app.get('/', index.view);
+app.post('/', index.canvas);
 app.get('/login', index.login);
 app.post('/login', index.canvas);
 app.get('/loggedin', index.loggedin);
