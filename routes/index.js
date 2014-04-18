@@ -3,6 +3,8 @@ var url = require('url');
 
 exports.view = function(req, res) {
 	auth.T.get('statuses/home_timeline', function(err, reply) {
+		console.log(err);
+		console.log(reply[0]);
 		res.render('index', {timeline: reply});
 	});
 }
