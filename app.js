@@ -18,7 +18,6 @@ app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.bodyParser());
-app.use(passport.initialize());
 
 //routes
 app.get('/', index.view);
