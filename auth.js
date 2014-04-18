@@ -33,9 +33,9 @@ var T = new Twit({
 passport.use(new FacebookStrategy({
 		clientID: process.env.facebook_client_id,
 		clientSecret: process.env.facebook_client_secret,
-		callbackURL: "http://localhost:3000/login"
+		callbackURL: process.env.redirect_uri
 	}, function(accessToken, refreshToken, profile, done) {
-
+		
 	}
 ));
 
