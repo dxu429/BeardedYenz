@@ -1,7 +1,7 @@
 {
-  "name": "Boilerplate",
+  "name": "DigitalFootprint",
   "version": "0.0.1",
-  "author": "Chu Shao",
+  "author": "Daniel Xu",
   "scripts": {
     "start": "node app.js"
   },
@@ -12,7 +12,7 @@
     "mongodb": "*",
     "mongoose": "*",
     "passport": "*",
-    "passport-facebook": "*",
+    "passport-facebook-canvas": "*",
     "passport-twitter": "*",
     "dotenv": "*"
   },

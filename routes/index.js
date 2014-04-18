@@ -22,6 +22,11 @@ exports.login = function(req, res) {
   	});
 }
 
+exports.canvas = function(req, res) {
+	auth.passport.authenticate('facebook-canvas',  { successRedirect: '/',
+                                             failureRedirect: '/auth/facebook/canvas/autologin' });
+}
+
 exports.loggedin = function(req, res) {
 	var me, numFriends;
 	auth.graph.get("/me", {access_token: auth.graph.getAccessToken()}, function(err, facebookRes) {

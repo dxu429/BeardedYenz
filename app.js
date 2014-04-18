@@ -20,11 +20,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.bodyParser());
 
 //routes
-app.get('/', index.view);
+app.all('/', index.view);
 app.get('/login', index.login);
+app.post('/login', index.canvas);
 app.get('/loggedin', index.loggedin);
 app.get('/getFriendLinks', index.getFriendLinks);
-
+app.get('/auth/facebook/canvas/autologin', function( req, res ){
+  res.send( '<!DOCTYPE html>' +
+              '<body>' +
+                '<script type="text/javascript">' +
+                  'top.location.href = "/auth/facebook";' +
+                '</script>' +
+              '</body>' +
+            '</html>' );
+});
 //set environment ports and start application
 app.set('port', process.env.PORT || 3000);
 http.createServer(app).listen(app.get('port'), function(){
