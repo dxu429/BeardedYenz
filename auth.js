@@ -14,6 +14,13 @@ var fbAuthUrl = graph.getOauthUrl({
   , "scope": "user_friends, user_about_me, user_birthday, read_stream"
 });
 
+graph.extendAccessToken({
+    "client_id":      process.env.facebook_client_id
+  , "client_secret":  process.env.facebook_client_secret
+	}, function (err, facebookRes) {
+   console.log(facebookRes);
+});
+
 var fbAuthObj = function(req) {
 	graph.setAppSecret(process.env.facebook_client_secret);
 	return {
