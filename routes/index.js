@@ -26,7 +26,6 @@ exports.login = function(req, res) {
 
 exports.loggedin = function(req, res) {
 	var me, timeline;
-	console.log(res);
 	auth.graph.get("/me", {access_token: auth.graph.getAccessToken()}, function(err, facebookRes) {
 		me = facebookRes;
 		auth.T.get('statuses/home_timeline', function(err, reply) {	
