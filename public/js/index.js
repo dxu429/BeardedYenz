@@ -16,7 +16,8 @@ function initializePage() {
 
 	$canvas.attr('width', pixelWidth);
 	$canvas.attr('height', pixelHeight);
-
+	if(document.location.pathname == "/")
+		return;
 	$.get("/getFriendLinks", function(data) {
 		if(data.err) {
 			console.log("uh oh");
