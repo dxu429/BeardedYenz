@@ -33,9 +33,9 @@ var T = new Twit({
 passport.use(new FacebookStrategy({
 		clientID: process.env.facebook_client_id,
 		clientSecret: process.env.facebook_client_secret,
-		callbackURL: process.env.redirect_uri
+		callbackURL: "https://beardedyenz.herokuapp.com/loggedin"
 	}, function(accessToken, refreshToken, profile, done) {
-		
+
 	}
 ));
 
