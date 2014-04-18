@@ -23,14 +23,13 @@ app.use(express.bodyParser());
 app.get('/', index.view);
 app.post('/', index.canvas);
 app.get('/login', index.login);
-app.post('/login', index.canvas);
 app.get('/loggedin', index.loggedin);
 app.get('/getFriendLinks', index.getFriendLinks);
 app.get('/auth/facebook/canvas/autologin', function( req, res ){
   res.send( '<!DOCTYPE html>' +
               '<body>' +
                 '<script type="text/javascript">' +
-                  'top.location.href = "/auth/facebook";' +
+                  'top.location.href = "/login";' +
                 '</script>' +
               '</body>' +
             '</html>' );
