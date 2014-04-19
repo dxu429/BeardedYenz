@@ -42,7 +42,22 @@
             <canvas id="canvas" class="canvas">
               <p>Anything in here will be replaced on browsers that support the canvas element</p>
             </canvas>
+            <div class="content">
+              <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet">
+              <br>
+              <h2>Chirp, chirp, where are the birds calling you now?</h2>
+                <hr class="short">
+                {{#each timeline}}
+                  <h4>{{text}} <small>by <span>@{{user.screen_name}}</span></small></h4>
+                {{/each}}
+
+              <div class="content end">
+                <img src="images/digitalworld.png" class="worldimg"> <!-- placeholder pic -->
+                <h2>The digital world is <em>the</em> new frontier.</h2>
+              </div>
+            </div>
           </div>
+          <!--
           <div class="twittercontent">
             <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet">
             <br>
@@ -52,6 +67,9 @@
                 <h4>{{text}} <small>by <span>@{{user.screen_name}}</span></small></h4>
               {{/each}}
           </div>
+          <div>
+            <h2>The digital world is <em>the</em> new frontier.</h2>
+          </div>-->
         </div>
       {{else}}
       <div class="header">
