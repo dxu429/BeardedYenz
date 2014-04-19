@@ -2,6 +2,10 @@
 	display: none;
 }
 
+body, html {
+	font-family: 'Economica', sans-serif;
+}
+
 #canvas-container {
 	overflow-x: auto;
 	overflow-y: visible;
@@ -21,7 +25,33 @@
 	float: left;
 }
 
-.thumb {
+.logo {
+	max-width: 100px;
+}
+
+.logo-small {
 	max-width: 45px;
 	padding-right: 10px;
+}
+
+h1 {
+	font-weight: 700;
+	font-style: normal;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	font-size: 60px;
+	text-align: center;
+
+}
+
+.header {
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 70px;
+}
+
+.login {
+	margin-top: 25px;
+	font-size: 25px;
 }
