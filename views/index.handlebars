@@ -45,37 +45,24 @@
             <div class="content">
               <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet">
               <br>
-              <h2>Chirp, chirp, where are the birds calling you now?</h2>
+              <h2>Chirp, chirp, where are the birds calling you to now?</h2>
                 <hr class="short">
                 {{#each timeline}}
                   <h4>{{text}} <small>by <span>@{{user.screen_name}}</span></small></h4>
                 {{/each}}
 
               <div class="content end">
-                <img src="images/digitalworld.png" class="worldimg"> <!-- placeholder pic -->
+                <img src="images/digitalworld.png" class="worldimg">
                 <h2>The digital world is <em>the</em> new frontier.</h2>
               </div>
             </div>
           </div>
-          <!--
-          <div class="twittercontent">
-            <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet">
-            <br>
-            <h2>Chirp, chirp, where are the birds calling you now?</h2>
-              <hr class="short">
-              {{#each timeline}}
-                <h4>{{text}} <small>by <span>@{{user.screen_name}}</span></small></h4>
-              {{/each}}
-          </div>
-          <div>
-            <h2>The digital world is <em>the</em> new frontier.</h2>
-          </div>-->
         </div>
       {{else}}
       <div class="header">
         <img src="images/footprint.png" class="logo"><br>
         <h1>Welcome to <span>Digital Footprint</span>!</h1>
-        <h2>Nomads of the World Wide Web, always traveling from place to place.</h2>
+        <h2>Calling all nomads of the World Wide Web, always traveling from place to place.</h2>
         <h3>Log in to view a map of where your friends have traveled.</h3>
         <div class="login">
           <a href="/login"><button>Log-in with Facebook</button></a>
@@ -84,9 +71,7 @@
       {{/if}}
     </div>
     <footer>
-      <div class="footer"> 
         <h6>&copy; Daniel Xu 2014</h6>
-      </div>
     </footer>
     <script src="js/index.js"></script>
   </body>
