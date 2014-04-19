@@ -43,7 +43,7 @@ function initializePage() {
 			color: 'random-light',
 			shuffle: true,
 			rotateRatio: 0,
-			backgroundColor: '#000'
+			backgroundColor: '#141414'
 		});
 	});
 }

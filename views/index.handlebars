@@ -28,35 +28,44 @@
   <body>
     <div class="container">  
       {{#if loggedIn}}
+      <div class="tracking">
         <h1><img src="images/footprint.png" class="logo-small"> Welcome {{me.first_name}}</h1>
         <div class="row" id="loadingMsg">
-          <div class="h2">Where are you going? We're tracking your footprints...</div>
+          <div class="h2">You're not lost. We're tracking your footprints...</div>
           <div  id="spinDiv">
           </div>
         </div>
+      </div>
         <div class="row">
           <div class="span12" id="canvas-container">
             <canvas id="canvas" class="canvas">
               <p>Anything in here will be replaced on browsers that support the canvas element</p>
             </canvas>
           </div>
+          <div>
+            <h2>Timeline for @cogs121d3xuvly</h2>
+              {{#each timeline}}
+                <h4>{{text}} <small>by @{{user.screen_name}}</small></h4>
+              {{/each}}
+          </div>
         </div>
       {{else}}
       <div class="header">
         <img src="images/footprint.png" class="logo"><br>
-        <h1>Welcome to Digital Footprint!</h1>
+        <h1>Welcome to <span>Digital Footprint</span>!</h1>
         <h2>Nomads of the World Wide Web, always traveling from place to place.</h2>
-        <h3>Log in to view a WordCloud of your friend's shared links.</h3>
+        <h3>Log in to view a map of where your friends have traveled.</h3>
         <div class="login">
           <a href="/login"><button>Log-in with Facebook</button></a>
         </div>
       </div>
       {{/if}}
-      <h2>Timeline for @cogs121d3xuvly</h2>
-      {{#each timeline}}
-        <h4>{{text}} <small>by @{{user.screen_name}}</small></h4>
-      {{/each}}
     </div>
+    <footer>
+      <div class="footer"> 
+        <h6>&copy; Daniel Xu 2014</h6>
+      </div>
+    </footer>
     <script src="js/index.js"></script>
   </body>
 
