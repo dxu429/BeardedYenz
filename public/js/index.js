@@ -32,7 +32,7 @@ function initializePage() {
 			else
 				return 0;
 		});
-		$("#loadingMsg").html("<h3><em>"+list[0][0]+"</em> was shared the most amongst your friends on facebook.</h3>");
+		$("#loadingMsg").html("<h3>Looks like your friends have some restless feet;<br>Below is a map of your Facebook friend's digital world.<br><em>"+list[0][0]+"</em> was shared the most.</h3>");
 		WordCloud(document.getElementById("canvas"), {
 			list: list,	
 	  		gridSize: Math.round(16 * $('#canvas').width() / 1024),

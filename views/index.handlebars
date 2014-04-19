@@ -28,24 +28,28 @@
   <body>
     <div class="container">  
       {{#if loggedIn}}
-      <div class="tracking">
-        <h1><img src="images/footprint.png" class="logo-small"> Welcome {{me.first_name}}</h1>
-        <div class="row" id="loadingMsg">
-          <div class="h2">You're not lost. We're tracking your footprints...</div>
+      <div class="header2">
+        <h1><img src="images/footprint.png" class="logo-small"> Welcome <span>{{me.first_name}}</span></h1>
+        <hr>
+        <div class="content" id="loadingMsg">
+          <div class="content"><h3>You're not lost. We're tracking your footprints...</h3></div>
           <div  id="spinDiv">
           </div>
         </div>
       </div>
         <div class="row">
-          <div class="span12" id="canvas-container">
+          <div id="canvas-container">
             <canvas id="canvas" class="canvas">
               <p>Anything in here will be replaced on browsers that support the canvas element</p>
             </canvas>
           </div>
-          <div>
-            <h2>Timeline for @cogs121d3xuvly</h2>
+          <div class="twittercontent">
+            <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet"> <img src="images/twitter.png" class="tweet">
+            <br>
+            <h2>Chirp, chirp, where are the birds calling you now?</h2>
+              <hr class="short">
               {{#each timeline}}
-                <h4>{{text}} <small>by @{{user.screen_name}}</small></h4>
+                <h4>{{text}} <small>by <span>@{{user.screen_name}}</span></small></h4>
               {{/each}}
           </div>
         </div>

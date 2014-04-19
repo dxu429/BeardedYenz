@@ -13,17 +13,14 @@ body, html {
 	position: relative;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	margin-left: auto;	
+	margin-left: auto;
 }
 
 .canvas {
 	display: block;
 	position: relative;
 	overflow: hidden;
-}
-
-#loadingMsg div {
-	width: 250px;
-	float: left;
 }
 
 .logo {
@@ -52,11 +49,17 @@ h1 {
 	margin-top: 70px;
 }
 
+.header2 {
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 40px;
+}
+
 .login {
 	margin-top: 25px;
 	font-size: 25px;
 }
-
 
 span {
 	color: #8eb2fb;
@@ -67,4 +70,30 @@ h6 {
 	text-align: center;
 	margin-top: 100px;
 	color: #525252;
+}
+
+.content{
+	text-align: center;
+}
+
+em {
+	letter-spacing: 0.1em;
+	color:#C4D7FD;
+}
+
+hr {
+	max-width: 80px;
+}
+
+.tweet {
+	max-width: 40px;
+	padding-right: 10px;
+}
+
+.twittercontent {
+	text-align: center;
+}
+
+.short {
+	max-width: 15px;
 }
