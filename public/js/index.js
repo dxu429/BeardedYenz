@@ -18,7 +18,9 @@ function initializePage() {
 	$canvas.attr('height', pixelHeight);
 	if(document.location.pathname == "/")
 		return;
+	$('.twitterDivClassName').hide()
 	$.get("/getFriendLinks", function(data) {
+		$('.twitterDivClassName').show()
 		if(data.err) {
 			console.log("uh oh");
 			return;
