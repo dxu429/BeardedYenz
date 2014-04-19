@@ -20,3 +20,8 @@
 	width: 250px;
 	float: left;
 }
+
+.thumb {
+	max-width: 45px;
+	padding-right: 10px;
+}
